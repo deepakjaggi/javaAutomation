@@ -29,7 +29,7 @@ public class TC004_verifyRegistration extends TestBase {
 
 	@BeforeTest
 	public void setUP() {
-		init("CHROME", "C://Common//help.html");
+		init("CHROME", System.getProperty("user.dir") + "/testData/help.html");
 		extentReports = ExtentManager.getInstance(System.getProperty("user.dir") + "\\Results\\" + "Res.html");
 	}
 
