@@ -1,4 +1,4 @@
-package cucumberTest.testSum;
+package com.cucumberTest.testSum;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;

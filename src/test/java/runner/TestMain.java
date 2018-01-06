@@ -8,8 +8,8 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
 import org.junit.runner.JUnitCore;
 
-import cucumberTest.testMul.TestMulExecution;
-import cucumberTest.testSum.TestSumExecution;
+import com.cucumberTest.testMul.TestMulExecution;
+import com.cucumberTest.testSum.TestSumExecution;
 
 public class TestMain
 {

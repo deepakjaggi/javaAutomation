@@ -1,4 +1,4 @@
-package com.test.automation.uiAutomation.testHomePage;
+package com.uiAutomation.testHomePage;
 
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;

@@ -1,8 +1,7 @@
-<suite name="example suite 1" parallel="classes" thread-count="2" >
+<suite name="example suite 1" parallel="classes" thread-count="1" >
   <test name="Regression suite 1" >
     <classes>
-      <class name="cucumberTest.testMul.TestMulExecution"/> 
-      <class name="cucumberTest.testSum.TestSumExecution"/>
+      <class name="com.uiAutomation.testHomePage.TC004_verifyRegistration"/>       
 	</classes>
  </test>
 </suite>

@@ -1,4 +1,4 @@
-package cucumberTest.testSum;
+package com.cucumberTest.testSum;
 
 import java.io.FileInputStream;
 import java.io.IOException;

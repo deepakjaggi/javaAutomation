@@ -1,4 +1,4 @@
-package com.test.automation.uiAutomation.testHomePage;
+package com.uiAutomation.testHomePage;
 
 import java.util.Random;
 

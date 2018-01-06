@@ -1,6 +1,6 @@
-package cucumberTest.testMul;
+package com.cucumberTest.testSum;
 
-public class TestMulData
+public class TestSumData
 {
 	private int a;
 	private int b;
