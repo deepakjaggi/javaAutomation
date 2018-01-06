@@ -1,4 +1,4 @@
-package com.test.automation.uiAutomation.uiActions;
+package uiAutomation.uiActions;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

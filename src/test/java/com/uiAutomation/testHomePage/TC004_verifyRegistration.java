@@ -8,10 +8,10 @@ import org.testng.annotations.Test;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
-import com.test.automation.uiAutomation.testBase.TestBase;
-import com.test.automation.uiAutomation.uiActions.HelpPage;
 
 import reports.ExtentManager;
+import uiAutomation.testBase.TestBase;
+import uiAutomation.uiActions.HelpPage;
 import utility.ExcelReader;
 
 public class TC004_verifyRegistration extends TestBase {

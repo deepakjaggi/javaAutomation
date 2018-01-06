@@ -8,8 +8,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.test.automation.uiAutomation.testBase.TestBase;
-import com.test.automation.uiAutomation.uiActions.HomePage;
+import uiAutomation.testBase.TestBase;
+import uiAutomation.uiActions.HomePage;
 
 public class TC003_verfiyResgistration_DataProviderUsingArray extends TestBase 
 {

@@ -1,4 +1,4 @@
-package com.test.automation.uiAutomation.testBase;
+package uiAutomation.testBase;
 
 import org.apache.commons.lang3.SystemUtils;
 import org.openqa.selenium.WebDriver;
