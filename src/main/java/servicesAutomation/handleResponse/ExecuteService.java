@@ -44,6 +44,7 @@ public class ExecuteService {
 			return null;
 		} else {
 			logger.info("ResponseData = " + respData.asString());
+			System.out.println("ResponseData = " + respData.asString());
 			return respData.as(beanClass);
 		}
 	}

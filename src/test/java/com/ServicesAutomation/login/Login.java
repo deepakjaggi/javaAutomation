@@ -4,14 +4,16 @@ import com.jayway.restassured.response.Response;
 
 import servicesAutomation.handleResponse.CustomJsonParsor;
 import servicesAutomation.handleResponse.ExecuteService;
+import servicesAutomation.models.LoginModel;
 
 public class Login {
-	public Login executeLoginValidateService(Login login, String url) {
+	public LoginModel executeLoginService(LoginModel loginRequest, String url) {
 		try {
 			ExecuteService executeService = new ExecuteService();
-			Response response = executeService.executePostService(new CustomJsonParsor().makJSONFromData(login), url);
-			Login responseModel = new Login();
-			responseModel = (Login) executeService.handleResponse(response, Login.class);
+			Response response = executeService.executePostService(new CustomJsonParsor().makJSONFromData(loginRequest),
+					url);
+			LoginModel responseModel = new LoginModel();
+			responseModel = (LoginModel) executeService.handleResponse(response, LoginModel.class);
 			return responseModel;
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

@@ -1,6 +1,6 @@
 package servicesAutomation.models;
 
-public class MakePayment {
+public class MakePaymentModel {
 	public String senderMobileNumber;
 	public String rxerMobileNumber;
 	public String amount;

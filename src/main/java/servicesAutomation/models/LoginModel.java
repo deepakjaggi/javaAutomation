@@ -1,11 +1,12 @@
 package servicesAutomation.models;
 
-public class Login {
+public class LoginModel {
 	public String mobileNumber;
 	public String pin;
 	public String token;
 	public String errorCode;
 	public String errorMessage;
+	public String useCase;
 
 	public String getMobileNumber() {
 		return mobileNumber;
@@ -45,6 +46,14 @@ public class Login {
 
 	public void setErrorMessage(String errorMessage) {
 		this.errorMessage = errorMessage;
+	}
+
+	public String getUseCase() {
+		return useCase;
+	}
+
+	public void setUseCase(String useCase) {
+		this.useCase = useCase;
 	}
 
 }
