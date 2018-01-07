@@ -43,7 +43,7 @@ public class TC001_LoginTestCases extends TestBase {
 			loginModelTestData.setUseCase(useCase.toUpperCase());
 			loginModelTestData.setErrorCode(errorCode);
 			loginModelTestData.setErrorMessage(errorMessage.toUpperCase());
-				if (loginWorkFlow.verifyDOPayment(loginModelTestData,test)) {
+				if (loginWorkFlow.verifyLogin(loginModelTestData,test)) {
 				test.log(LogStatus.PASS, "Success for use case : " + useCase);
 			} else {
 				test.log(LogStatus.FAIL, "Failed for use case : " + useCase);
@@ -51,11 +51,8 @@ public class TC001_LoginTestCases extends TestBase {
 			extentReports.endTest(test);
 			extentReports.flush();
 		}
-
 	}
-
 	@AfterTest
 	public void endTest() {
 	}
-
 }

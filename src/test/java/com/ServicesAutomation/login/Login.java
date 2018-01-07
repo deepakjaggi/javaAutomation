@@ -1,6 +1,6 @@
 package com.ServicesAutomation.login;
 
-import com.ServicesAutomation.common.LoginCommon;
+import com.ServicesAutomation.common.CommonResponseObjects;
 import com.jayway.restassured.response.Response;
 
 import servicesAutomation.handleResponse.CustomJsonParsor;
@@ -9,14 +9,14 @@ import servicesAutomation.models.LoginModel;
 
 public class Login {
 
-	public LoginModel executeLoginService(LoginModel loginRequest, String url) {
+	public LoginModel executeLoginService(LoginModel loginModelTest, String url) {
 		try {
 			ExecuteService executeService = new ExecuteService();
-			Response response = executeService.executePostService(new CustomJsonParsor().makJSONFromData(loginRequest),
+			Response response = executeService.executePostService(new CustomJsonParsor().makJSONFromData(loginModelTest),
 					url);
 			LoginModel responseModel = new LoginModel();
 			responseModel = (LoginModel) executeService.handleResponse(response, LoginModel.class);
-			LoginCommon.loginResponse=responseModel;
+			CommonResponseObjects.loginResponse=responseModel;
 			return responseModel;
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

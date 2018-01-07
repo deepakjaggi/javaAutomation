@@ -1,14 +1,11 @@
 package com.ServicesAutomation.login;
 
-import org.apache.log4j.Logger;
-
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import servicesAutomation.models.LoginModel;
 
 public class LoginWorkFlow {
-	final static Logger logger = Logger.getLogger(LoginWorkFlow.class);
 	private Login login;
 	private LoginModel loginResponse;
 
@@ -17,11 +14,10 @@ public class LoginWorkFlow {
 		this.loginResponse = new LoginModel();
 	}
 
-	public boolean verifyDOPayment(LoginModel loginModelTestData, ExtentTest test)
+	public boolean verifyLogin(LoginModel loginModelTestData, ExtentTest test)
 
 	{
 		int errorCnt = 0;
-		boolean flag = false;
 		String useCase = loginModelTestData.getUseCase();
 		switch (useCase) {
 		case "SUCCESS_LOGIN":
@@ -53,11 +49,15 @@ public class LoginWorkFlow {
 				return true;
 			}
 		default:
-			test.log(LogStatus.INFO, "No Matching condition is found to validate");
-			break;
+			loginResponse = login.executeLoginService(loginModelTestData, "http://localhost:8080/demo/business/login");
+			if (loginResponse.getErrorCode().equals("9000"))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
-
-		return flag;
-
 	}
 }

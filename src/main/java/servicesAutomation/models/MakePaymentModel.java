@@ -64,5 +64,11 @@ public class MakePaymentModel {
 	public void setToken(String token) {
 		this.token = token;
 	}
+	@Override
+	public String toString() {
+		return "MakePaymentModel [senderMobileNumber=" + senderMobileNumber + ", rxerMobileNumber=" + rxerMobileNumber
+				+ ", amount=" + amount + ", errorCode=" + errorCode + ", errorMessage=" + errorMessage + ", txnID="
+				+ txnID + ", token=" + token + "]";		
+	}
 
 }
