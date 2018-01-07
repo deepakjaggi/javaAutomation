@@ -2,6 +2,9 @@ package com.ServicesAutomation.login;
 
 import org.apache.log4j.Logger;
 
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+
 import servicesAutomation.models.LoginModel;
 
 public class LoginWorkFlow {
@@ -14,14 +17,12 @@ public class LoginWorkFlow {
 		this.loginResponse = new LoginModel();
 	}
 
-	public boolean verifyDOPayment(LoginModel loginModelTestData)
+	public boolean verifyDOPayment(LoginModel loginModelTestData, ExtentTest test)
 
 	{
 		int errorCnt = 0;
 		boolean flag = false;
 		String useCase = loginModelTestData.getUseCase();
-
-		System.out.println("Executing use case : " + useCase.toUpperCase());
 		switch (useCase) {
 		case "SUCCESS_LOGIN":
 		case "BLANK_MOBILE_NUMBER":
@@ -30,21 +31,19 @@ public class LoginWorkFlow {
 			String actualErrorCode = loginResponse.getErrorCode();
 			String expectedErrorMessage = loginModelTestData.getErrorMessage().trim().toUpperCase();
 			String actualErrorMessage = loginResponse.getErrorMessage().trim().toUpperCase();
-			System.out.println("-----------");
-			System.out.println(expectedErrorCode);
-			System.out.println(actualErrorCode);
-			System.out.println("-----------");
-			System.out.println(expectedErrorMessage);
-			System.out.println(actualErrorMessage);
+			test.log(LogStatus.INFO, "Expected Error Code : " + expectedErrorCode);
+			test.log(LogStatus.INFO, "Actual Error Code : " + actualErrorCode);
+			test.log(LogStatus.INFO, "Expected Error message: " + expectedErrorMessage);
+			test.log(LogStatus.INFO, "Actual Error message: " + actualErrorMessage);
 			System.out.println("-----------");
 			if (!expectedErrorCode.equals(actualErrorCode)) {
 				errorCnt = errorCnt + 1;
-				System.out.println("Error Code is not matching");
+				test.log(LogStatus.INFO, "Error Code is not matching");
 
 			}
 			if (!expectedErrorMessage.equals(actualErrorMessage)) {
 				errorCnt = errorCnt + 1;
-				System.out.println("Error message is not matching");
+				test.log(LogStatus.INFO, "Error message is not matching");
 			}
 
 			if (errorCnt != 0) {
@@ -54,7 +53,7 @@ public class LoginWorkFlow {
 				return true;
 			}
 		default:
-			System.out.println("No Matching condition is found to validate");
+			test.log(LogStatus.INFO, "No Matching condition is found to validate");
 			break;
 		}
 
