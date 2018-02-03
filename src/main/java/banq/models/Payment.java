@@ -2,17 +2,22 @@ package banq.models;
 
 public class Payment {
 
-	private int numOfPayments;
+	private int paymentNumber;
 	private double amount;
 	private double interest;
 	private double total;
 	
-	public int getNumOfPayments() {
-		return numOfPayments;
+	public Payment() {		
+		
 	}
-	public void setNumOfPayments(int numOfPayments) {
-		this.numOfPayments = numOfPayments;
+	public Payment(int paymentNumber, double amount, double interest, double total) {		
+		this.paymentNumber = paymentNumber;
+		this.amount = amount;
+		this.interest = interest;
+		this.total = total;
 	}
+	
+	
 	public double getAmount() {
 		return amount;
 	}
@@ -30,6 +35,19 @@ public class Payment {
 	}
 	public void setTotal(double total) {
 		this.total = total;
+	}
+	public int getPaymentNumber() {
+		return paymentNumber;
+	}
+	public void setPaymentNumber(int paymentNumber) {
+		this.paymentNumber = paymentNumber;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Payment [paymentNumber=" + paymentNumber + ", amount=" + amount + ", interest=" + interest + ", total="
+				+ total + "]";
 	}
 
 }

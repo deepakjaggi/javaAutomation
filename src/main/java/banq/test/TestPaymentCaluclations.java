@@ -1,52 +1,86 @@
 package banq.test;
 
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+import static org.testng.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import banq.defination.BanqService;
-import banq.models.LoanType;
+import banq.models.Payment;
 
-
-public class TestPaymentCaluclations 
-{
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+public class TestPaymentCaluclations {
 	BanqService banqService;
-	
-	@Before
-	public void Setup()
-	{
-		banqService=mock(BanqService.class);
-	}
-	
-	
-	@Test
-	public void verifyGetLoanTypes()
-	{
-		when(banqService.GetLoanTypes()).thenReturn(getAllLoansList());
-		System.out.println(banqService.GetLoanTypes().get(0).getLoanType());
-		System.out.println(banqService.GetLoanTypes().get(0).getLoanText());
-		System.out.println(banqService.GetLoanTypes().get(1).getLoanType());
-		System.out.println(banqService.GetLoanTypes().get(1).getLoanText());
-		
-	}
-	
-	public List<LoanType> getAllLoansList()
-	{
-		List<LoanType> listLoanType=new ArrayList<LoanType>();
-		LoanType l=new LoanType();
-		l.setLoanText("HomeLoan");
-		l.setLoanType(1);
-		listLoanType.add(l);
-		l=null;
-		l=new LoanType();
-		l.setLoanText("Car Loan");
-		l.setLoanType(2);
-		listLoanType.add(l);
-		return listLoanType;
-	}
-}
+	MockFile mockFile = new MockFile();
+	List<Payment> paymentStructExpected = new ArrayList<Payment>();
 
+	@Before
+	public void Setup() {
+		banqService = mock(BanqService.class);
+	}
+
+	// Verify get loan Types Service
+	@Test
+	public void tc001_VerifyGetLoanTypes() {
+		when(banqService.GetLoanTypes()).thenReturn(mockFile.getAllLoansList());
+		assertEquals(banqService.GetLoanTypes().size(), 2, "Number of records are equal");
+		assertEquals(banqService.GetLoanTypes().get(0).getLoanText(), "HomeLoan");
+		assertEquals(banqService.GetLoanTypes().get(0).getLoanType(), 1);
+		assertEquals(banqService.GetLoanTypes().get(1).getLoanText(), "Car Loan");
+		assertEquals(banqService.GetLoanTypes().get(1).getLoanType(), 2);
+	}
+
+	// Verify get loan Types Service
+	@Test
+	public void tc002_VerifyGetInterestForHomeLoan() {
+		when(banqService.GetInterest(1)).thenReturn(mockFile.getInterestRate("Home Loan"));
+		assertEquals(banqService.GetInterest(1), 3.14);
+	}
+
+	@Test
+	public void tc003_VerifyGetInterestForCar() {
+		when(banqService.GetInterest(2)).thenReturn(mockFile.getInterestRate("Car Loan"));
+		assertEquals(banqService.GetInterest(2), 6.00);
+	}
+
+	// Verify return payment service
+	@Test
+	public void tc004_VerifyReturnPaymentServiceCorrectCaluclations() {
+		paymentStructExpected = mockFile.getExpectedPaymentStructture();
+		when(banqService.ReturnPayments(1000.00, 1, 3.14))
+				.thenReturn(mockFile.returnPaymentsCalculationsFor3DigitAmount());
+		// Logic for compare 2 lists
+		List<Payment> paymentStruct = new ArrayList<Payment>();
+		paymentStruct = banqService.ReturnPayments(1000.00, 1, 3.14);
+		if (paymentStruct.toString().equalsIgnoreCase(paymentStructExpected.toString())) {
+			assertEquals(true, true, "paymenbt Structure is Correct");
+		} else {
+			assertEquals(true, false, "paymenbt Structure is Not Correct");
+		}
+	}
+
+	// Verify return payment service
+	@Test
+	public void tc004_VerifyReturnPaymentServiceNotCorrectCaluclations() {
+		paymentStructExpected = mockFile.getNotExpectedPaymentStructture();
+		when(banqService.ReturnPayments(1000.00, 1, 3.14))
+				.thenReturn(mockFile.returnPaymentsCalculationsFor3DigitAmount());
+		// Logic for compare 2 lists
+		List<Payment> paymentStruct = new ArrayList<Payment>();
+		paymentStruct = banqService.ReturnPayments(1000.00, 1, 3.14);
+		if (paymentStruct.toString().equalsIgnoreCase(paymentStructExpected.toString())) {
+			assertEquals(true, true, "paymenbt Structure is Correct");
+		} else {
+			assertEquals(true, false, "paymenbt Structure is Not Correct");
+		}
+
+	}
+
+}
