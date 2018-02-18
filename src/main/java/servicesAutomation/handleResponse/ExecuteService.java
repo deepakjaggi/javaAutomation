@@ -1,7 +1,6 @@
 package servicesAutomation.handleResponse;
 
 import static com.jayway.restassured.RestAssured.given;
-
 import org.apache.log4j.Logger;
 
 import com.jayway.restassured.response.Response;
