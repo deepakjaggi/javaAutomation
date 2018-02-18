@@ -37,7 +37,7 @@ public class TestPaymentCaluclations {
 		assertEquals(banqService.GetLoanTypes().get(1).getLoanType(), 2);
 	}
 
-	// Verify get loan Types Service
+	// Verify get loan Types Service 1
 	@Test
 	public void tc002_VerifyGetInterestForHomeLoan() {
 		when(banqService.GetInterest(1)).thenReturn(mockFile.getInterestRate("Home Loan"));
