@@ -26,7 +26,7 @@ public class TestPaymentCaluclations {
 		banqService = mock(BanqService.class);
 	}
 
-	// Verify get loan Types Service
+	// Verify get loan Types Service 1
 	@Test
 	public void tc001_VerifyGetLoanTypes() {
 		when(banqService.GetLoanTypes()).thenReturn(mockFile.getAllLoansList());
@@ -37,7 +37,7 @@ public class TestPaymentCaluclations {
 		assertEquals(banqService.GetLoanTypes().get(1).getLoanType(), 2);
 	}
 
-	// Verify get loan Types Service
+	// Verify get loan Types Service 2
 	@Test
 	public void tc002_VerifyGetInterestForHomeLoan() {
 		when(banqService.GetInterest(1)).thenReturn(mockFile.getInterestRate("Home Loan"));
@@ -50,7 +50,7 @@ public class TestPaymentCaluclations {
 		assertEquals(banqService.GetInterest(2), 6.00);
 	}
 
-	// Verify return payment service
+	// Verify return payment service 3
 	@Test
 	public void tc004_VerifyReturnPaymentServiceCorrectCaluclations() {
 		paymentStructExpected = mockFile.getExpectedPaymentStructture();
