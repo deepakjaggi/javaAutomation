@@ -26,7 +26,7 @@ public class TestPaymentCaluclations {
 		banqService = mock(BanqService.class);
 	}
 
-	// Verify get loan Types Service
+	// Verify get loan Types Service 1
 	@Test
 	public void tc001_VerifyGetLoanTypes() {
 		when(banqService.GetLoanTypes()).thenReturn(mockFile.getAllLoansList());
