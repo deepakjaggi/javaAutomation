@@ -66,7 +66,7 @@ public class TestPaymentCaluclations {
 		}
 	}
 
-	// Verify return payment service
+	// Verify return payment service 4
 	@Test
 	public void tc004_VerifyReturnPaymentServiceNotCorrectCaluclations() {
 		paymentStructExpected = mockFile.getNotExpectedPaymentStructture();
