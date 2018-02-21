@@ -18,7 +18,7 @@ import servicesAutomation.models.LoginModel;
 import uiAutomation.testBase.TestBase;
 import utility.UtilityClass;
 
-public class TC003_LogintestCases extends TestBase {
+public class TC001_LoginTestCases extends TestBase {
 	ExtentReports extentReports;
 	ExtentTest test;
 	LoginWorkFlow loginWorkFlow;
