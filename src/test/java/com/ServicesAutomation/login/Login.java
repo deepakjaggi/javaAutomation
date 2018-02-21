@@ -1,5 +1,7 @@
 package com.ServicesAutomation.login;
 
+import java.io.IOException;
+
 import com.ServicesAutomation.common.CommonResponseObjects;
 import com.jayway.restassured.response.Response;
 
@@ -7,9 +9,8 @@ import servicesAutomation.handleResponse.CustomJsonParsor;
 import servicesAutomation.handleResponse.ExecuteService;
 import servicesAutomation.models.LoginModel;
 
-public class Login {
-
-	public LoginModel executeLoginService(LoginModel loginModelTest, String url) {
+public class Login{		
+	public LoginModel executeLoginService(LoginModel loginModelTest, String url) throws IOException {		
 		try {
 			ExecuteService executeService = new ExecuteService();
 			Response response = executeService.executePostService(new CustomJsonParsor().makJSONFromData(loginModelTest),

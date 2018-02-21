@@ -33,7 +33,6 @@ public class CustomJsonParsor {
 		} catch (Exception e) {
 			logger.error(ERROR_TAG + e.getMessage().toString());
 		}
-
 		return jsonStr;
 	}
 

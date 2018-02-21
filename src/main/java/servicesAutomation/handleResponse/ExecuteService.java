@@ -34,6 +34,7 @@ public class ExecuteService {
 			}
 		} catch (Exception exception) {
 			logger.error(exception.getMessage());
+			System.out.println(exception.getMessage());
 		}
 		return response;
 	}

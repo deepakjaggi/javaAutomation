@@ -1,28 +1,48 @@
 package com.ServicesAutomation.login;
 
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+import java.io.IOException;
+
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import servicesAutomation.models.LoginModel;
+import utility.MockingUtil;
+import utility.UtilityClass;
 
 public class LoginWorkFlow {
 	private Login login;
 	private LoginModel loginResponse;
+	private String mock;
+	private String loginURL;
+	private String jsonFilePath;
 
-	public LoginWorkFlow() {
+	public LoginWorkFlow() throws IOException {
 		this.login = new Login();
 		this.loginResponse = new LoginModel();
+		mock = new UtilityClass().getPropertyValue("mock");
+		loginURL = new UtilityClass().getPropertyValue("loginURL");
+		
 	}
 
-	public boolean verifyLogin(LoginModel loginModelTestData, ExtentTest test)
-
-	{
+	public boolean verifyLogin(LoginModel loginModelTestData, ExtentTest test) throws IOException {
+		boolean flag = false;
 		int errorCnt = 0;
 		String useCase = loginModelTestData.getUseCase();
+		 CheckMockingStatusAndReturnMockingFile(loginModelTestData, useCase);
 		switch (useCase) {
 		case "SUCCESS_LOGIN":
+			loginResponse = login.executeLoginService(loginModelTestData, loginURL);
+			if (loginResponse.getErrorCode().equals("9000")) {
+				flag = true;
+			} else {
+				flag = false;
+			}
+			break;
 		case "BLANK_MOBILE_NUMBER":
-			loginResponse = login.executeLoginService(loginModelTestData, "http://localhost:8080/demo/business/login");
+			loginResponse = login.executeLoginService(loginModelTestData, loginURL);
 			String expectedErrorCode = loginModelTestData.getErrorCode();
 			String actualErrorCode = loginResponse.getErrorCode();
 			String expectedErrorMessage = loginModelTestData.getErrorMessage().trim().toUpperCase();
@@ -43,20 +63,32 @@ public class LoginWorkFlow {
 			}
 
 			if (errorCnt != 0) {
-				return false;
+				flag = false;
 
 			} else {
-				return true;
+				flag = true;
 			}
 		default:
-			loginResponse = login.executeLoginService(loginModelTestData, "http://localhost:8080/demo/business/login");
-			if (loginResponse.getErrorCode().equals("9000"))
-			{
-				return true;
-			}
-			else
-			{
-				return false;
+		}
+		return flag;
+	}
+
+	private void CheckMockingStatusAndReturnMockingFile(LoginModel loginModelTestData, String useCase)
+			throws IOException {
+		if (mock.equalsIgnoreCase("YES")) {
+			login = mock(Login.class);
+			switch (useCase) {
+			case "SUCCESS_LOGIN":
+				jsonFilePath=System.getProperty("user.dir") + "\\MockFiles\\loginResponseModelCorrectPin.txt";
+				when(login.executeLoginService(loginModelTestData, loginURL))
+						.thenReturn((LoginModel) new MockingUtil().readMockFilesAndReturnModelGeneric(useCase, LoginModel.class,jsonFilePath));
+				break;
+			case "BLANK_MOBILE_NUMBER":
+				break;
+			case "BLANK_PIN_NUMBER":
+				break;
+			default:
+				break;
 			}
 		}
 	}
