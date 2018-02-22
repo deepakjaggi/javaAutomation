@@ -1,8 +1,7 @@
 <suite name="example suite 1" parallel="classes" thread-count="1" >
   <test name="Regression suite 1" >
     <classes>
-      <class name="com.ServicesAutomation.TestCases.TC001_LoginTestCases"/> 
-      <class name="com.ServicesAutomation.TestCases.TC002_MakePaymentTestCases"/>          
+      <class name="com.ServicesAutomation.TestCases.TC001_LoginTestCases"/>          
 	</classes>
  </test>
 </suite>
