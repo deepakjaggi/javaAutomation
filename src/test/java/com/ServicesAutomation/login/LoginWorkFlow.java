@@ -5,6 +5,7 @@ import static org.mockito.Mockito.when;
 
 import java.io.IOException;
 
+import com.ServicesAutomation.common.CommonResponseObjects;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
@@ -35,6 +36,7 @@ public class LoginWorkFlow {
 		switch (useCase) {
 		case "SUCCESS_LOGIN":
 			loginResponse = login.executeLoginService(loginModelTestData, loginURL);
+			CommonResponseObjects.loginResponse=loginResponse;
 			if (loginResponse.getErrorCode().equals("9000")) {
 				flag = true;
 			} else {

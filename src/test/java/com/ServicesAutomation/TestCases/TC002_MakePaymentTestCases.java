@@ -30,10 +30,10 @@ public class TC002_MakePaymentTestCases extends TestBase {
 		return new Object[][] 
 				{ 
 					{ "Y", "Success Payment", "92511830", "1234", "92511831", "100", "9000", "Success" },
-					{ "Y", "Blank sender Mobile Number", "", "1234", "92511831", "100", "9001","sender Number can not be null" },
-					{ "Y", "Blank rxer Mobile Number", "92511830", "1234", "", "100", "9002","rxer Number can not be null" },
-					{ "Y", "Blank amount", "92511830", "92511831", "1234", "", "9004", "amount can not be null" },
-					{ "Y", "Blank token", "92511830", "92511831", "1234", "100", "9003", "token can not be null" } 
+					{ "N", "Blank sender Mobile Number", "", "1234", "92511831", "100", "9001","sender Number can not be null" },
+					{ "N", "Blank rxer Mobile Number", "92511830", "1234", "", "100", "9002","rxer Number can not be null" },
+					{ "N", "Blank amount", "92511830", "92511831", "1234", "", "9004", "amount can not be null" },
+					{ "N", "Blank token", "92511830", "92511831", "1234", "100", "9003", "token can not be null" } 
 				};
 	}
 
@@ -53,7 +53,7 @@ public class TC002_MakePaymentTestCases extends TestBase {
 			LoginModel loginModelTestData = new LoginModel();
 			loginModelTestData.setMobileNumber(senderMobileNumber);
 			loginModelTestData.setPin(pin);
-			loginModelTestData.setUseCase("default");
+			loginModelTestData.setUseCase("SUCCESS_LOGIN");
 			if (loginWorkFlow.verifyLogin(loginModelTestData, test)) {
 				test.log(LogStatus.INFO, "Success for use case : " + useCase);
 				//Populate Make Payment Data

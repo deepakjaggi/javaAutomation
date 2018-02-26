@@ -57,3 +57,31 @@
 2018-02-22 10:54:34 INFO  ExecuteService:46 - ResponseData = {"mobileNumber":"92511831","pin":"1234","token":"756437","errorCode":"9000","errorMessage":"Success"}
 2018-02-22 10:54:34 INFO  ExecuteService:31 - {"mobileNumber":"92511831","pin":"1234","token":"239095","errorCode":"9000","errorMessage":"Success"}
 2018-02-22 10:54:34 INFO  ExecuteService:46 - ResponseData = {"mobileNumber":"92511831","pin":"1234","token":"239095","errorCode":"9000","errorMessage":"Success"}
+2018-02-22 11:47:22 INFO  ExecuteService:31 - <html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<title>Error 403 No valid crumb was included in the request</title>
+</head>
+<body><h2>HTTP ERROR 403</h2>
+<p>Problem accessing /demo/business/makePayment. Reason:
+<pre>    No valid crumb was included in the request</pre></p><hr><a href="http://eclipse.org/jetty">Powered by Jetty:// 9.4.z-SNAPSHOT</a><hr/>
+
+</body>
+</html>
+
+2018-02-22 11:47:22 INFO  ExecuteService:46 - ResponseData = <html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<title>Error 403 No valid crumb was included in the request</title>
+</head>
+<body><h2>HTTP ERROR 403</h2>
+<p>Problem accessing /demo/business/makePayment. Reason:
+<pre>    No valid crumb was included in the request</pre></p><hr><a href="http://eclipse.org/jetty">Powered by Jetty:// 9.4.z-SNAPSHOT</a><hr/>
+
+</body>
+</html>
+
+2018-02-22 11:49:43 INFO  ExecuteService:31 - {"senderMobileNumber":"92511830","rxerMobileNumber":"92511831","amount":"100","errorCode":"9000","errorMessage":"Success","txnID":"67125710","token":"513892"}
+2018-02-22 11:49:43 INFO  ExecuteService:46 - ResponseData = {"senderMobileNumber":"92511830","rxerMobileNumber":"92511831","amount":"100","errorCode":"9000","errorMessage":"Success","txnID":"67125710","token":"513892"}
+2018-02-23 18:29:30 INFO  ExecuteService:31 - {"mobileNumber":"92511831","pin":"1234","token":"492846","errorCode":"9000","errorMessage":"Success"}
+2018-02-23 18:29:30 INFO  ExecuteService:46 - ResponseData = {"mobileNumber":"92511831","pin":"1234","token":"492846","errorCode":"9000","errorMessage":"Success"}

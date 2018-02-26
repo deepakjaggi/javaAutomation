@@ -52,7 +52,7 @@ public class TC004_verifyRegistration extends TestBase {
 			}
 			extentReports.endTest(test);
 			extentReports.flush();
-			//it will generate the report.
+			//it will generate the report1.
 		}
 	}
 

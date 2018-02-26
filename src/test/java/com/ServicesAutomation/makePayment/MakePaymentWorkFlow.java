@@ -10,7 +10,7 @@ public class MakePaymentWorkFlow {
 	public boolean verifyMakePayment(MakePaymentModel makePaymentModelTestData, ExtentTest test)
 	{
 		int errCnt=0;
-		MakePaymentModel makePaymentModelResponse=new MakePayment().executemakePaymentService(makePaymentModelTestData, "http://localhost:8080/demo/business/makePayment");
+		MakePaymentModel makePaymentModelResponse=new MakePayment().executemakePaymentService(makePaymentModelTestData, "http://localhost:8085/demo/business/makePayment");
 		test.log(LogStatus.INFO,makePaymentModelResponse.toString());
 		if (!makePaymentModelResponse.getErrorCode().equals(makePaymentModelTestData.getErrorCode()))
 		{
