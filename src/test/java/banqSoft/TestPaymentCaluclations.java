@@ -35,10 +35,12 @@ public class TestPaymentCaluclations {
 		assertEquals(banqService.GetLoanTypes().get(0).getLoanType(), 1);
 		assertEquals(banqService.GetLoanTypes().get(1).getLoanText(), "Car Loan");
 		assertEquals(banqService.GetLoanTypes().get(1).getLoanType(), 2);
-		//Ui test cases 1
-		//Ui test cases 2
-		//Ui test cases 3
-		//Ui test cases 4
+//		Added Sample Comment Master fast forward 1
+//		Added Sample Comment Master fast forward 1
+//		Added Sample Comment Master fast forward 1
+//		Added Sample Comment Master fast forward 1
+//		Added Sample Comment Master fast forward 2
+		
 
 	}
 
