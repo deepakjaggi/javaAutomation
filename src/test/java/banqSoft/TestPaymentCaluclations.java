@@ -39,6 +39,7 @@ public class TestPaymentCaluclations {
 		//Ui test cases 2
 		//Ui test cases 3
 		//Ui test cases 4
+
 	}
 
 	// Verify get loan Types Service 2
