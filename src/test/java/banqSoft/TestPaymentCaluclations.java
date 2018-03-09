@@ -39,6 +39,7 @@ public class TestPaymentCaluclations {
 //		Added Sample Comment Master fast forward 1
 //		Added Sample Comment Master fast forward 1
 //		Added Sample Comment Master fast forward 1
+//		Added Sample Comment Master fast forward 2
 		
 	}
 
