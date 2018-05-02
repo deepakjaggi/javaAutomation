@@ -4,36 +4,25 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import uiAuto.pageObjects.HomePage;
-import uiAuto.testBase.TestBase;
-import uiAuto.workFlows.WorkFlows;
+
 
 public class SortingLogic {
-
-	TestBase testBase=new TestBase();
-	WebDriver guruDriver;
-	WebDriverWait wait;
-	HomePage homePage=new HomePage();
-	WorkFlows workFlows=new WorkFlows();	
 	
 	
-	public SortingLogic()
-	{
-		testBase.init("Chrome", "http://live.guru99.com/index.php/");
-		guruDriver=testBase.getGuruDriver();
-		wait=new WebDriverWait(guruDriver, 20000);
-		homePage.setGuru99WebDriver(guruDriver);
-	}
-	
-	public boolean verifySortingByName()
+	public boolean verifyDay1(WebDriverWait wait, WebDriver driver)
 	{
 		boolean flag=false;
-		homePage.clickOnMobileSection(wait);
-		homePage.selectSortBy(wait, "Position");
-		if (workFlows.verifySortingDisplay(wait, homePage.getNameOfProducts()))
+		HomePage homePage=new HomePage(driver);
+		if (homePage.verifyTitleOfHomePage(wait,"THIS IS DEMO SITE FOR"))
 		{
-			flag=true;
+			if (homePage.verifyTitleOfMobilePage(wait, "MOBILE"))
+			{
+				if (homePage.verifySorting(wait, "Name"))
+				{
+					return true;
+				}
+			}			
 		}
-		
 		return flag;
 	}
 	

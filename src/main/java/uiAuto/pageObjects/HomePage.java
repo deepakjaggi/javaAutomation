@@ -1,5 +1,7 @@
 package uiAuto.pageObjects;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.openqa.selenium.WebDriver;
@@ -14,78 +16,74 @@ public class HomePage {
 
 	WebDriver guru99WebDriver;
 
-	public WebDriver getGuru99WebDriver() {
-		return guru99WebDriver;
-	}
+	@FindBy(xpath = "//*[@class='page-title']")
+	WebElement eleHomePageTitle;
 
-	public void setGuru99WebDriver(WebDriver guru99WebDriver) {
-		this.guru99WebDriver = guru99WebDriver;
-	}
+	@FindBy(xpath = "//*[@class='level0 nav-1 first']")
+	WebElement eleMobileLink;
 
-	@FindBy(xpath = "//*[@id='nav']/ol/li[1]/a")
-	WebElement lnkMobile;
+	@FindBy(xpath = "//*[@class='page-title category-title']")
+	WebElement eleMobilePageTitle;
 
-	@FindBy(xpath = "//*[@id=\\\"top\\\"]/body/div/div/div[2]/div/div[2]/div[1]/div[3]/div[1]/div[1]/div/select")
-	WebElement selectSortBy;
+	@FindBy(xpath = "//select[@title='Sort By']")
+	WebElement eleSortByDropDown;
 
 	@FindBy(className = "category-products")
 	WebElement eleParenGrid;
 
 	@FindBy(className = "product-name")
 	List<WebElement> nameOfProducts;
-	
-	public WebElement getLnkMobile() {
-		return lnkMobile;
-	}
 
-	public void setLnkMobile(WebElement lnkMobile) {
-		this.lnkMobile = lnkMobile;
-	}
-
-	public WebElement getSelectSortBy() {
-		return selectSortBy;
-	}
-
-	public void setSelectSortBy(WebElement selectSortBy) {
-		this.selectSortBy = selectSortBy;
-	}
-
-	public WebElement getEleParenGrid() {
-		return eleParenGrid;
-	}
-
-	public void setEleParenGrid(WebElement eleParenGrid) {
-		this.eleParenGrid = eleParenGrid;
-	}
-
-	public List<WebElement> getNameOfProducts() {
-		return nameOfProducts;
-	}
-
-	public void setNameOfProducts(List<WebElement> nameOfProducts) {
-		this.nameOfProducts = nameOfProducts;
-	}	
-
-	public HomePage() {
+	public HomePage(WebDriver driver) {
+		guru99WebDriver = driver;
 		PageFactory.initElements(guru99WebDriver, this);
 	}
 
-	// Actions
-	public void clickOnMobileSection(WebDriverWait wait) {
-		wait.until(ExpectedConditions.visibilityOf(lnkMobile));
-		lnkMobile.click();
-	}
-
-	public void selectSortBy(WebDriverWait wait, String value) {
-		wait.until(ExpectedConditions.visibilityOf(selectSortBy));
-		Select lv = new Select(selectSortBy);
-		try {
-			lv.selectByVisibleText(value);
-		} catch (org.openqa.selenium.StaleElementReferenceException e) {
-			// System.out.println(e.getMessage());
-			System.out.println("handeled -- Element is clicked");
+	public boolean verifyTitleOfHomePage(WebDriverWait wait, String expectedText) {
+		boolean flag = false;
+		wait.until(ExpectedConditions.visibilityOf(eleHomePageTitle));
+		if (eleHomePageTitle.getText().toString().trim().toUpperCase().equals(expectedText)) {
+			return true;
 		}
+		return flag;
 	}
 
-	
+	public boolean verifyTitleOfMobilePage(WebDriverWait wait, String expectedText) {
+		boolean flag = false;
+		wait.until(ExpectedConditions.visibilityOf(eleMobileLink));
+		eleMobileLink.click();
+		wait.until(ExpectedConditions.visibilityOf(eleMobilePageTitle));
+		if (eleMobilePageTitle.getText().toString().trim().toUpperCase().equals(expectedText)) {
+			return true;
+		}
+		return flag;
+	}
+
+	public boolean verifySorting(WebDriverWait wait, String textToSelect) {
+		boolean flag = false;
+		wait.until(ExpectedConditions.visibilityOf(eleSortByDropDown));
+		eleSortByDropDown.click();
+		Select lv = new Select(eleSortByDropDown);
+		try {
+			lv.selectByVisibleText(textToSelect);
+		} catch (org.openqa.selenium.StaleElementReferenceException e) {
+			System.out.println("handeled -- But Element is clicked");
+			System.out.println("Step 3-2 -- OK ");
+		}
+		List<String> namesPhones1 = new ArrayList<String>();
+		for (WebElement ele : nameOfProducts) {
+			namesPhones1.add(ele.getText().toString());
+		}
+		List<String> namesPhones2 = new ArrayList<String>();
+		for (WebElement ele : nameOfProducts) {
+			namesPhones2.add(ele.getText().toString());
+		}
+		Collections.sort(namesPhones2);
+		if (namesPhones1.toString().equals(namesPhones2.toString())) {
+			System.out.println("Collection is Sorted");
+			flag=true;
+		}
+		return flag;
+	}
+
 }

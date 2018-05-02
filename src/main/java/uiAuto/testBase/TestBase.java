@@ -23,6 +23,7 @@ public class TestBase {
 			}
 			System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 			guruDriver = new ChromeDriver();
+			setGuruDriver(guruDriver);
 		}
 	}
 
