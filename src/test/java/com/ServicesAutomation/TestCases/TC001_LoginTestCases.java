@@ -31,7 +31,7 @@ public class TC001_LoginTestCases extends TestBase {
 	public Object[][] ValidDataProvider() {
 		return new Object[][] { { "Y", "SUCCESS_LOGIN", "92511830", "1234", "SUCCESS", "9000" },
 				{ "Y", "BLANK_MOBILE_NUMBER", "", "1234", "mobile Number not valid1", "9002" },
-				{ "Y", "BLANK_PIN_NUMBER", "92511830", "", "pin Number not valid1", "9002" } };
+				{ "N", "BLANK_PIN_NUMBER", "92511830", "", "pin Number not valid1", "9002" } };
 	}
 
 	@BeforeTest
