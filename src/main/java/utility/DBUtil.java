@@ -24,6 +24,7 @@ public class DBUtil {
 		}
 		// Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
+				
 		String sql = "select top 1 * from CUSTOMER.TBL_CUSTOMER_OTP_DETAIL order by CREATED_DT desc";
 		stmt = con.createStatement();
 		rs = stmt.executeQuery(sql);
