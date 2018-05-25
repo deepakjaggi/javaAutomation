@@ -32,5 +32,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/jaggidee/eclipse/jee-oxygen2/eclipse/sqljdbc4-4.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
