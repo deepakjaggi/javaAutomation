@@ -1,4 +1,4 @@
-package sitTestCases;
+package sitTestCases.stepAndExecution;
 
 import java.util.List;
 
@@ -9,6 +9,7 @@ import org.testng.Assert;
 import commonObjects.CommonObjects;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
+import sitTestCases.data.RegistrationData;
 import testWorkFlows.RegistrationWorkFlow;
 import uiAuto.testBase.TestBase;
 

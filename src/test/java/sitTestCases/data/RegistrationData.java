@@ -1,4 +1,4 @@
-package sitTestCases;
+package sitTestCases.data;
 
 public class RegistrationData {
 	private String tC;
