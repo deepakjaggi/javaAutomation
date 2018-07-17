@@ -5,4 +5,3 @@ Scenario: verify Customer Enrollement
 		| 001_TC | deepak   | abc      | abc             | abc -- has been created |		
 	When user will perform registration flow	
 	
-	
