@@ -5,13 +5,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class TestBase {
-	private WebDriver guruDriver;
+	private WebDriver webDriver;	
 	private String chromeDriverPath;
 
 	public void init(String browser, String url) {
 		selectBrowser(browser.toUpperCase());
 		getURL(url);
-		guruDriver.manage().window().maximize();
+		webDriver.manage().window().maximize();
 	}
 
 	public void selectBrowser(String browser) {
@@ -22,25 +22,25 @@ public class TestBase {
 				chromeDriverPath = "/Users/usha/Desktop/chromedriver";
 			}
 			System.setProperty("webdriver.chrome.driver", chromeDriverPath);
-			guruDriver = new ChromeDriver();
-			setGuruDriver(guruDriver);
+			webDriver = new ChromeDriver();
+			setDriver(webDriver);
 		}
 	}
 
 	public void getURL(String url) {
-		guruDriver.get(url);
+		webDriver.get(url);
 	}
 
 	public void closeBrowser() {
-		guruDriver.close();
+		webDriver.close();
 	}
 
-	public WebDriver getGuruDriver() {
-		return guruDriver;
+	public WebDriver getDriver() {
+		return webDriver;
 	}
 
-	public void setGuruDriver(WebDriver guruDriver) {
-		this.guruDriver = guruDriver;
+	public void setDriver(WebDriver driver) {
+		this.webDriver = driver;
 	}
 
 	public String getChromeDriverPath() {

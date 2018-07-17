@@ -9,7 +9,7 @@ import uiAuto.pageObjects.HomePage;
 public class SortingLogic {
 	
 	
-	public boolean verifyDay1(WebDriverWait wait, WebDriver driver)
+	public boolean verifySortingLogic(WebDriverWait wait, WebDriver driver)
 	{
 		boolean flag=false;
 		HomePage homePage=new HomePage(driver);
@@ -24,6 +24,5 @@ public class SortingLogic {
 			}			
 		}
 		return flag;
-	}
-	
+	}	
 }

@@ -23,13 +23,13 @@ public class TC001_SortingTestCases {
 		sortingLogic = new SortingLogic();
 		testBase = new TestBase();
 		testBase.init("Chrome", "http://live.guru99.com/index.php/");
-		guruDriver = testBase.getGuruDriver();
+		guruDriver = testBase.getDriver();
 		wait = new WebDriverWait(guruDriver, 20000);				
 	}
 
 	@Test()
 	public void day1Verification() throws InterruptedException {
-		Assert.assertEquals(sortingLogic.verifyDay1(wait, guruDriver), true, "This test case is failed");
+		Assert.assertEquals(sortingLogic.verifySortingLogic(wait, guruDriver), true, "This test case is failed");
 	}
 
 	@AfterTest
