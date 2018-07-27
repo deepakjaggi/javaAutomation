@@ -7,7 +7,6 @@ Scenario: verify Customer Enrollement
 	When user will perform registration flow 
 	When user will login into the system, verify that Login is success 
 	Then CloseBrowser 
-
 	
 #Scenario: Shutdown system 
 	#Then CloseSystem 
