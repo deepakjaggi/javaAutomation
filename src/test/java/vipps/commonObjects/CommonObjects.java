@@ -1,6 +1,6 @@
-package commonObjects;
+package vipps.commonObjects;
 
-import sitTestCases.data.RegistrationData;
+import vipps.sitTestCases.testDataModel.RegistrationData;
 
 public class CommonObjects {
 	public static RegistrationData registrationData;

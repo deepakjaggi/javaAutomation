@@ -1,4 +1,4 @@
-package sitTestCases.data;
+package vipps.sitTestCases.testDataModel;
 
 public class RegistrationData {
 	private String tC;
