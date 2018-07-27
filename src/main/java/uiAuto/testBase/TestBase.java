@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class TestBase {
-	private WebDriver webDriver;	
+	public static WebDriver webDriver;	
 	private String chromeDriverPath;
 
 	public void init(String browser, String url) {
@@ -22,8 +22,7 @@ public class TestBase {
 				chromeDriverPath = "/Users/usha/Desktop/chromedriver";
 			}
 			System.setProperty("webdriver.chrome.driver", chromeDriverPath);
-			webDriver = new ChromeDriver();
-			setDriver(webDriver);
+			webDriver = new ChromeDriver();			
 		}
 	}
 
@@ -35,14 +34,7 @@ public class TestBase {
 		webDriver.close();
 	}
 
-	public WebDriver getDriver() {
-		return webDriver;
-	}
-
-	public void setDriver(WebDriver driver) {
-		this.webDriver = driver;
-	}
-
+	
 	public String getChromeDriverPath() {
 		return chromeDriverPath;
 	}

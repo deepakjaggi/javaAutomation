@@ -34,9 +34,7 @@ public class HelpPage
 
 	public void registerUser(String username, String pwd, String cpwd) throws InterruptedException
 	{
-		//txtUserName.clear();
-		txtUserName.sendKeys(username);
-		//txtPwd.clear();
+		txtUserName.sendKeys(username);	
 		txtPwd.sendKeys(pwd);
 		txtCpwd.clear();
 		txtCpwd.sendKeys(cpwd);
