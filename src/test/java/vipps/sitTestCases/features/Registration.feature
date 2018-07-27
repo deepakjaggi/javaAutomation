@@ -4,4 +4,5 @@ Scenario: verify Customer Enrollement
 		| tC     | userName | passWord | confirmPassword | expectedResult          | 
 		| 001_TC | deepak   | abc      | abc             | deepak -- has been created |		
 	When user will perform registration flow 
+	Then close the system
 	
