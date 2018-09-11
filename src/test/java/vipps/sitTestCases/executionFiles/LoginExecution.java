@@ -1,14 +1,13 @@
 package vipps.sitTestCases.executionFiles;
 
-import org.junit.runner.RunWith;
-
 import cucumber.api.CucumberOptions;
-import cucumber.api.junit.Cucumber;
+import cucumber.api.testng.AbstractTestNGCucumberTests;
 
-@RunWith(Cucumber.class)
+//@RunWith(Cucumber.class) 
+//Hello
 
 @CucumberOptions(features = "classpath:vipps/sitTestCases/features/Login.feature", glue = "classpath:vipps.sitTestCases.stepFiles")
 
-public class LoginExecution {
+public class LoginExecution extends AbstractTestNGCucumberTests{
 
 }

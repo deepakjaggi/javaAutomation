@@ -1,7 +1,10 @@
 <suite name="example suite 1" parallel="classes" thread-count="1" >
   <test name="Regression suite 1" >
     <classes>
-      <class name="sitTestCases.features.Registration"/>          
+      <class name="vipps.sitTestCases.executionFiles.LoginExecution"/>          
+      <class name="vipps.sitTestCases.executionFiles.RegistrationExecution"/> 
 	</classes>
  </test>
 </suite>
+
+<!-- To run 1st Maven - test and then run it -->
