@@ -69,6 +69,7 @@ public class TC001_LoginTestCases extends TestBase {
 	@AfterTest
 	public void endTest() {
 	}	
+	
 	public void setTestData(String executionStatus, String useCase, String mobileNumber, String pin,
 			String errorMessage, String errorCode) throws IOException {
 		loginModelTestData.setMobileNumber(util.getPropertyValue("senderMobileNumber"));

@@ -49,19 +49,25 @@ public class LoginWorkFlow {
 			String actualErrorCode = loginResponse.getErrorCode();
 			String expectedErrorMessage = loginModelTestData.getErrorMessage().trim().toUpperCase();
 			String actualErrorMessage = loginResponse.getErrorMessage().trim().toUpperCase();
+			try
+			{
 			test.log(LogStatus.INFO, "Expected Error Code : " + expectedErrorCode);
 			test.log(LogStatus.INFO, "Actual Error Code : " + actualErrorCode);
 			test.log(LogStatus.INFO, "Expected Error message: " + expectedErrorMessage);
 			test.log(LogStatus.INFO, "Actual Error message: " + actualErrorMessage);
-			System.out.println("-----------");
+			}
+			catch (Exception e)
+			{			
+			}			
 			if (!expectedErrorCode.equals(actualErrorCode)) {
 				errorCnt = errorCnt + 1;
-				test.log(LogStatus.INFO, "Error Code is not matching");
+				if (test!=null)	test.log(LogStatus.INFO, "Error Code is not matching");
+				
 
 			}
 			if (!expectedErrorMessage.equals(actualErrorMessage)) {
 				errorCnt = errorCnt + 1;
-				test.log(LogStatus.INFO, "Error message is not matching");
+				if (test!=null)test.log(LogStatus.INFO, "Error message is not matching");
 			}
 
 			if (errorCnt != 0) {

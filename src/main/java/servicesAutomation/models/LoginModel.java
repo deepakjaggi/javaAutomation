@@ -7,6 +7,7 @@ public class LoginModel {
 	public String errorCode;
 	public String errorMessage;
 	public String useCase;
+	public String tc;
 
 	public String getMobileNumber() {
 		return mobileNumber;
@@ -54,6 +55,14 @@ public class LoginModel {
 
 	public void setUseCase(String useCase) {
 		this.useCase = useCase;
+	}
+
+	public String getTc() {
+		return tc;
+	}
+
+	public void setTc(String tc) {
+		this.tc = tc;
 	}
 
 }
