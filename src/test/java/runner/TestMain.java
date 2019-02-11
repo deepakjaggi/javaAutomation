@@ -8,9 +8,6 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
 import org.junit.runner.JUnitCore;
 
-import com.cucumberTest.testMul.TestMulExecution;
-import com.cucumberTest.testSum.TestSumExecution;
-
 public class TestMain
 {
 	public static void main(String[] args) throws IOException
@@ -37,7 +34,7 @@ public class TestMain
 				if (status.equals("Y"))
 				{
 					System.out.println("Executing SUM Module");
-					jUnitCore.run(TestSumExecution.class);
+					//jUnitCore.run(TestSumExecution.class);
 					//sysoRaniNew
 				}
 				break;
@@ -45,7 +42,7 @@ public class TestMain
 				if (status.equals("Y"))
 				{
 					System.out.println("Executing Mul Module");
-					jUnitCore.run(TestMulExecution.class);
+					//jUnitCore.run(TestMulExecution.class);
 					//syso
 				}				
 				break;

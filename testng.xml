@@ -1,4 +1,4 @@
-<suite name="example suite 1" parallel="classes" thread-count="1" >
+<suite name="example suite 1" >
   <test name="Regression suite 1" >
     <classes>
       <!-- <class name="com.ServicesAutomation.TestCases.TC001_LoginTestCases"/>  -->         
@@ -6,3 +6,8 @@
 	</classes>
  </test>
 </suite>
+
+
+
+
+<!-- Build the project, Then ECCLIPSE PROJECT CLEAN (not MAVEN CLEAN) then run this file -->
