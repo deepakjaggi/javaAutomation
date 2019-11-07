@@ -1,6 +1,6 @@
 package vipps.sitTestCases.testDataModel;
 
-public class RegistrationData {
+public class TestDataModel {
 	private String tC;
 	private String userName;
 	private String passWord;

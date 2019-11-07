@@ -2,7 +2,7 @@
   <test name="Regression suite 1" >
     <classes>
       <class name="vipps.sitTestCases.executionFiles.LoginExecution"/>          
-      <class name="vipps.sitTestCases.executionFiles.RegistrationExecution"/> 
+     
 	</classes>
  </test>
 </suite>

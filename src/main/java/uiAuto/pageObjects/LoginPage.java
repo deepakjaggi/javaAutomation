@@ -24,7 +24,8 @@ public class LoginPage {
 		try
 		{
 			this.username.sendKeys(userName);
-			this.password.sendKeys(pwd);			
+			this.password.sendKeys(pwd);	
+			Thread.sleep(2000);
 			return true;
 		}
 		catch (Exception e)

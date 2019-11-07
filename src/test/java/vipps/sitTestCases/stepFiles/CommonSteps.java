@@ -1,13 +1,21 @@
 package vipps.sitTestCases.stepFiles;
 
+import java.util.List;
+
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import uiAuto.reports.ExtentManager;
 import uiAuto.testBase.TestBase;
 import vipps.commonObjects.CommonObjects;
+import vipps.sitTestCases.testDataModel.TestDataModel;
 
 public class CommonSteps {
+	
+	@Given("^Customer Enrollement Data$")
+	public void enroll(List<TestDataModel> registrationDataTest) {
+		CommonObjects.registrationData = registrationDataTest.get(0);
+	}
 
 	@Then("CloseSystem")
 	public void closeTheSystem() {
@@ -18,25 +26,26 @@ public class CommonSteps {
 		} catch (Exception e) {
 			System.out.println("Could not close all the processes of chrome driver -- " + e.getMessage());
 		}
-	}	
+	}
+
 	@When("^OpenBrowser$")
 	public void openBrowser() {
-		new TestBase().init("Chrome", System.getProperty("user.dir") + "/testData/help.html");		
+		new TestBase().init("Chrome", System.getProperty("user.dir") + "/testData/help.html");
 	}
+
 	@Then("^CloseBrowser$")
 	public void closeBrowser() {
 		TestBase.webDriver.close();
 	}
-	
+
 	@Given("^StartReporting$")
-	public void startReporting()
-	{
-		CommonObjects.extentReports= ExtentManager.getInstance(System.getProperty("user.dir") + "\\Results\\" + "Res.html");
+	public void startReporting() {
+		CommonObjects.extentReports = ExtentManager
+				.getInstance(System.getProperty("user.dir") + "\\Results\\" + "Res.html");
 	}
-	
+
 	@Then("^CloseReporting$")
-	public void CloseReporting()
-	{
+	public void CloseReporting() {
 		CommonObjects.extentReports.endTest(CommonObjects.test);
 		CommonObjects.extentReports.flush();
 	}
